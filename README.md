@@ -2,7 +2,7 @@
 
 # 🧪 AI Eval Skills
 
-**A turnkey toolkit for evaluating AI agents — from first test plan to production-grade CI/CD.**
+**A turnkey toolkit for evaluating AI agents — from first test plan to production-grade CI/CD pipelines.**
 
 Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist), packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ other AI coding agents.
 
