@@ -8,6 +8,7 @@ Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/
 
 [![Skills CLI](https://img.shields.io/badge/install-npx%20skills%20add-blue?style=for-the-badge&logo=npm)](https://skills.sh)
 [![Source](https://img.shields.io/badge/based%20on-microsoft%2Feval--guide-0078D4?style=for-the-badge&logo=microsoft)](https://github.com/microsoft/eval-guide)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 </div>
 
