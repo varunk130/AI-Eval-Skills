@@ -15,7 +15,7 @@ Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/
 
 ## Why This Exists
 
-Shipping an AI agent without structured evaluation is like deploying code without tests — you're flying blind. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
+Shipping an AI agent without structured evaluation is like deploying code without tests — you're flying blind, and you'll only find out what's broken once users hit it. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
 
 ---
 
