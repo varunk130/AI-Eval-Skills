@@ -196,3 +196,7 @@ Issues and PRs welcome — whether it's improving documentation, adding usage ex
 ## License
 
 Skills in this repo are sourced from [microsoft/eval-guide](https://github.com/microsoft/eval-guide). See the original repository for licensing terms.
+
+---
+
+<sub>Curated and maintained by [Varun Kulkarni](https://github.com/varunk130) — part of a portfolio of AI agent systems for product teams.</sub>
