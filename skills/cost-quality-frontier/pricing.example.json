@@ -1,0 +1,11 @@
+{
+  "_version": "2026-04-15",
+  "_note": "Per-million-token prices in USD. This file ships as an example only — replace values with current vendor prices before relying on cost-quality-frontier output. Maintained locally; the skill never fetches prices from the network.",
+  "models": {
+    "claude-sonnet-4-5":  { "in_per_mtok": 3.00,  "out_per_mtok": 15.00 },
+    "claude-opus-4-6":    { "in_per_mtok": 15.00, "out_per_mtok": 75.00 },
+    "claude-haiku-4-5":   { "in_per_mtok": 0.80,  "out_per_mtok": 4.00 },
+    "gpt-5-mini":         { "in_per_mtok": 0.25,  "out_per_mtok": 2.00 },
+    "gpt-5":              { "in_per_mtok": 2.50,  "out_per_mtok": 10.00 }
+  }
+}

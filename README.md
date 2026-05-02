@@ -28,6 +28,7 @@ Shipping an AI agent without structured evaluation is like deploying code withou
 | **eval-generator** | Turns that plan into ready-to-run test cases with realistic inputs, expected outputs, and scoring criteria. Exports CSV for direct Copilot Studio import | You have a plan (or even just an agent description) and need actual test data |
 | **eval-result-interpreter** | Reads your evaluation results and delivers a SHIP / ITERATE / BLOCK verdict with ranked root causes and a prioritized fix list | You've run your evals and need to know: *are we good to go?* |
 | **eval-triage-and-improvement** | Walks you through failing test cases interactively — diagnosing why each one broke and recommending specific remediation steps | You have multiple failures and need hands-on help working through them |
+| **cost-quality-frontier** | Augments eval results with cost (input + output tokens × model price) and latency (p50/p95), then plots model options on a Pareto frontier with a quality-per-dollar composite score | You're choosing a production model and need quality, cost, and latency on one page |
 | **find-skills** | Searches the open skills ecosystem to discover additional capabilities you can install | You want to extend your agent's toolbox beyond eval |
 
 ---
