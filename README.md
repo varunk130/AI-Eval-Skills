@@ -8,9 +8,28 @@ Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/
 
 [![Skills CLI](https://img.shields.io/badge/install-npx%20skills%20add-blue?style=for-the-badge&logo=npm)](https://skills.sh)
 [![Source](https://img.shields.io/badge/based%20on-microsoft%2Feval--guide-0078D4?style=for-the-badge&logo=microsoft)](https://github.com/microsoft/eval-guide)
+[![Skills](https://img.shields.io/badge/Skills-6-blueviolet?style=for-the-badge)](#whats-inside)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
+**Maintained by [Varun Kulkarni](https://github.com/varunk130)** · [⚡ Quick Start ↓](#quick-start) · [What's Inside ↓](#whats-inside) · [How It Fits ↓](#how-it-all-fits-together)
+
 </div>
+
+---
+
+## ⚡ TL;DR — Install in 5 Seconds
+
+```bash
+npx skills add varunk130/AI-Eval-Skills
+```
+
+Then, in any supported AI agent (GitHub Copilot, Claude Code, Cursor, Codex, Windsurf):
+
+```text
+/eval-suite-planner My agent handles employee onboarding questions
+```
+
+> Full lifecycle (plan → generate → run → interpret → triage) is in the [Quick Start](#quick-start) section below.
 
 ---
 
