@@ -90,7 +90,7 @@ flowchart LR
 
 Each skill maps to a stage in [Microsoft's 4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist):
 
-```
+```text
   DEFINE              BASELINE & ITERATE           EXPAND                OPERATIONALIZE
  ┌──────────┐   ┌──────────────────────────┐   ┌──────────────┐   ┌──────────────────────┐
  │           │   │                          │   │  Broaden     │   │  Embed evals in      │
