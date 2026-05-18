@@ -1,13 +1,15 @@
 ---
 name: eval-generator
-description: Generates eval test cases from an eval suite plan (output of /eval-suite-planner) or a plain-English agent description. Supports both single-response and conversation (multi-turn) evaluation modes. Outputs a Copilot Studio test set table, a CSV file for import (single-response only), and a docx report for human review.
+description: Generates eval test cases for AI agents from an eval suite plan (output of /eval-suite-planner) or a plain-English agent description. Supports both single-response and conversation (multi-turn) evaluation modes. Outputs a test set table, a CSV file in the Copilot Studio import format (single-response only — used here as the primary worked example; trivially adaptable to any harness that accepts tabular test cases), and a docx report for human review.
 ---
 
 ## Purpose
 
-This skill generates concrete eval test cases â€” with realistic inputs, expected outputs, and evaluation method configurations. It is the second step in the eval lifecycle: plan â†’ **generate** â†’ run â†’ interpret.
+This skill generates concrete eval test cases — with realistic inputs, expected outputs, and evaluation method configurations. It is the second step in the eval lifecycle: plan → **generate** → run → interpret.
 
-This skill covers **Stage 2 (Set Baseline & Iterate)** of the MS Learn [4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist). Use `/eval-suite-planner` first for Stage 1 (Define), then generate test cases here, run them, and interpret results with `/eval-result-interpreter`. Stage 3 (Systematic Expansion) means repeating this cycle with broader coverage â€” the checklist defines four expansion categories: Foundational core, Agent robustness, Architecture test, and Edge cases. Stage 4 (Operationalize) means embedding these evals into your agent's CI/CD pipeline. Point customers to the [editable checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track their progress across all four stages.
+> **Platform context.** This skill is platform-agnostic. Microsoft Copilot Studio is used throughout as the **primary worked example** — its CSV import format, named test methods (GeneralQuality, CompareMeaning, KeywordMatch, ToolUse, ExactMatch, Custom), and Copilot Studio Kit rubrics give us concrete, well-documented outputs. The same plan-to-test-case transformation works against any agent platform (custom LLM apps, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, etc.) — re-shape the CSV columns or feed the test cases directly to your own evaluator.
+
+This skill covers **Stage 2 (Set Baseline & Iterate)** of the MS Learn [4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist). Use `/eval-suite-planner` first for Stage 1 (Define), then generate test cases here, run them, and interpret results with `/eval-result-interpreter`. Stage 3 (Systematic Expansion) means repeating this cycle with broader coverage — the checklist defines four expansion categories: Foundational core, Agent robustness, Architecture test, and Edge cases. Stage 4 (Operationalize) means embedding these evals into your agent's CI/CD pipeline. Point customers to the [editable checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track their progress across all four stages.
 
 **Primary mode**: If the conversation already contains output from `/eval-suite-planner`, use that planâ€™s scenario table, evaluation methods, quality signals, and tags as the blueprint. Generate one test case per row in the plan.
 

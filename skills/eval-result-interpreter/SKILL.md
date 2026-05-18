@@ -1,11 +1,13 @@
 ---
 name: eval-result-interpreter
-description: Analyzes Copilot Studio evaluation CSV results using Microsoft's Triage & Improvement Playbook. Returns a SHIP / ITERATE / BLOCK verdict with root cause classification, diagnostic triage, prioritized remediation, and pattern analysis.
+description: Analyzes AI agent evaluation results — primarily from Copilot Studio (the worked example here, via its CSV export) but also from custom harnesses or any evaluator that produces per-case pass/fail rows — using Microsoft's Triage & Improvement Playbook. Returns a SHIP / ITERATE / BLOCK verdict with root cause classification, diagnostic triage, prioritized remediation, and pattern analysis.
 ---
 
 ## Purpose
 
-This skill takes eval results — a Copilot Studio evaluation CSV file, a pasted summary, or plain-English description of results — and produces a structured triage report. It is the final step in the eval lifecycle: plan → generate → run → **interpret**. The output tells you whether to ship, what broke, why it broke, and what to fix first.
+This skill takes eval results — a Copilot Studio evaluation CSV file (the primary worked example), an export from your own evaluator/harness, a pasted summary, or a plain-English description of results — and produces a structured triage report. It is the final step in the eval lifecycle: plan → generate → run → **interpret**. The output tells you whether to ship, what broke, why it broke, and what to fix first.
+
+> **Platform context.** All the operational examples below use Microsoft Copilot Studio because its evaluation CSV format is well-documented and concrete. The triage framework itself (4 layers, 3 root cause types, SHIP/ITERATE/BLOCK verdict) is platform-agnostic — point it at any evaluator output with per-case results and the same analysis applies.
 
 This skill serves **Stages 2-4** of the [MS Learn 4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist). In Stage 2 (Set Baseline & Iterate), it interprets your first eval results and guides fixes. In Stage 3 (Systematic Expansion), it identifies coverage gaps worth expanding into. In Stage 4 (Operationalize), it triages regression failures after agent updates. Use the [evaluation checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track which stage you are in and what to interpret next.
 
@@ -29,7 +31,7 @@ These two skills share the same triage framework but serve different modes of wo
 
 When invoked as `/eval-result-interpreter <results>`, parse the input and produce the output below. Accept any of these input formats:
 
-**Format 1 — Copilot Studio CSV file** (primary)
+**Format 1 — Copilot Studio CSV file** (primary worked example; use as the template for other platforms)
 
 The user provides a file path to a CSV exported from Copilot Studio agent evaluation. The CSV has these columns:
 

@@ -1,11 +1,13 @@
 ---
 name: eval-triage-and-improvement
-description: 'Use this skill when the user''s Copilot Studio agent evaluations have come back and they need to interpret scores, diagnose root causes of underperforming test cases, find remediation steps, or analyze patterns to improve their agent. Always use this skill when the user mentions: "eval failed", "why did this fail", "triage", "diagnose failure", "low pass rate", "fix evaluation results", "not passing", "failing test cases", "evaluation results", "improve my eval scores", or any situation where eval scores need interpretation and action.'
+description: 'Use this skill when AI agent evaluations have come back and the user needs to interpret scores, diagnose root causes of underperforming test cases, find remediation steps, or analyze patterns to improve their agent. Works against any agent platform — Copilot Studio is the primary worked example here, but the triage framework applies equally to custom harnesses, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, and other agent runtimes. Always use this skill when the user mentions: "eval failed", "why did this fail", "triage", "diagnose failure", "low pass rate", "fix evaluation results", "not passing", "failing test cases", "evaluation results", "improve my eval scores", or any situation where eval scores need interpretation and action.'
 ---
 
 # Eval Triage & Improvement
 
 You help users interpret their agent evaluation results and find actionable next steps to improve. Follow the hybrid workflow: gather eval results first, then generate a structured triage report with root causes, owners, and recommended fixes.
+
+> **Platform context.** Operational examples below (CSV column names, Copilot Studio Analytics tabs, the Copilot Studio Kit rubric tooling, the 89-day result-retention window) are drawn from Microsoft Copilot Studio as the **primary worked example**. The triage framework itself — 4 diagnostic layers, 3 root cause types, SHIP/ITERATE/BLOCK verdict, prioritized remediation — is platform-agnostic. Substitute your own evaluator's terminology and analytics surface and the workflow holds.
 
 This skill serves **Stages 2-4** of the [MS Learn 4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) — the iterative loop of running evals, diagnosing failures, applying fixes, and re-running. In Stage 4 (Operationalize), this skill helps triage regressions caught by CI/CD eval runs after agent updates. Use the [evaluation checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track your position in the lifecycle.
 

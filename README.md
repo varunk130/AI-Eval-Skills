@@ -4,7 +4,9 @@
 
 **A turnkey toolkit for evaluating AI agents — from first test plan to production-grade CI/CD pipelines.**
 
-Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist), packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ other AI coding agents.
+Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** — these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete; swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
+
+Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ other AI coding agents.
 
 [![Skills CLI](https://img.shields.io/badge/install-npx%20skills%20add-blue?style=for-the-badge&logo=npm)](https://skills.sh)
 [![Source](https://img.shields.io/badge/based%20on-microsoft%2Feval--guide-0078D4?style=for-the-badge&logo=microsoft)](https://github.com/microsoft/eval-guide)
@@ -44,7 +46,7 @@ Shipping an AI agent without structured evaluation is like deploying code withou
 | Skill | What It Does | When To Use It |
 |:------|:-------------|:---------------|
 | **eval-suite-planner** | Takes a plain-English description of your agent and designs a full evaluation plan — which scenarios to test, which quality signals matter, what pass/fail looks like | You're starting fresh and need to figure out *what* to evaluate |
-| **eval-generator** | Turns that plan into ready-to-run test cases with realistic inputs, expected outputs, and scoring criteria. Exports CSV for direct Copilot Studio import | You have a plan (or even just an agent description) and need actual test data |
+| **eval-generator** | Turns that plan into ready-to-run test cases with realistic inputs, expected outputs, and scoring criteria. Exports CSV in the Copilot Studio import format (works directly with Copilot Studio; trivially adaptable to any harness that accepts tabular test cases) | You have a plan (or even just an agent description) and need actual test data |
 | **eval-result-interpreter** | Reads your evaluation results and delivers a SHIP / ITERATE / BLOCK verdict with ranked root causes and a prioritized fix list | You've run your evals and need to know: *are we good to go?* |
 | **eval-triage-and-improvement** | Walks you through failing test cases interactively — diagnosing why each one broke and recommending specific remediation steps | You have multiple failures and need hands-on help working through them |
 | **cost-quality-frontier** | Augments eval results with cost (input + output tokens × model price) and latency (p50/p95), then plots model options on a Pareto frontier with a quality-per-dollar composite score | You're choosing a production model and need quality, cost, and latency on one page |
@@ -64,7 +66,7 @@ flowchart LR
     A["📝 Describe\nyour agent"]:::action
     B["/eval-suite-planner"]:::skill
     C["/eval-generator"]:::skill
-    D["▶ Run evals\nin Copilot Studio"]:::action
+    D["▶ Run evals\non your agent platform\n(e.g. Copilot Studio)"]:::action
     E["/eval-result-interpreter"]:::skill
     F{"Verdict"}:::decision
     G["✅ SHIP"]:::success
@@ -126,7 +128,8 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 # 2. Generate test cases from the plan
 /eval-generator
 
-# 3. Run the generated tests in Copilot Studio, then export the results CSV
+# 3. Run the generated tests on your agent platform — e.g., import the CSV into Copilot Studio,
+#    or feed the test cases to your own evaluator / custom harness — then export the results CSV
 
 # 4. Get your verdict
 /eval-result-interpreter <paste or attach your results CSV>
@@ -159,7 +162,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 **You get back:**
 - One test case per scenario with realistic user inputs and expected agent responses
 - Scoring criteria and evaluation method configuration for each case
-- A CSV file formatted for direct import into Copilot Studio
+- A CSV file formatted for direct import into Copilot Studio (primary worked example) — the same shape works for any harness that ingests tabular test cases
 - A summary report for human review
 
 **Supports:** Both single-response and multi-turn conversation evaluation modes.
@@ -168,7 +171,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 <details>
 <summary><strong>/eval-result-interpreter</strong> — Read your results</summary>
 
-**You provide:** A Copilot Studio evaluation CSV, pasted results, or a plain-English summary  
+**You provide:** Evaluation results in any of these forms — a Copilot Studio results CSV (primary example), exported results from your own evaluator, pasted summary rows, or a plain-English description  
 **You get back:**
 - **SHIP / ITERATE / BLOCK** verdict
 - Root cause classification for every failure (knowledge gap, orchestration error, or safety issue)

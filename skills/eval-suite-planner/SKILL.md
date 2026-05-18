@@ -1,11 +1,13 @@
 ---
 name: eval-suite-planner
-description: Produces a concrete eval suite plan grounded in Microsoft's Eval Scenario Library and MS Learn agent evaluation guidance — scenario types, evaluation methods, quality signals, thresholds, and priority order — before any test cases are generated or evals are run.
+description: Produces a concrete eval suite plan for AI agents — grounded in Microsoft's Eval Scenario Library and MS Learn agent evaluation guidance (Copilot Studio is the primary worked example, but the plan is platform-agnostic and adapts to any agent harness). Outputs scenario types, evaluation methods, quality signals, thresholds, and priority order — before any test cases are generated or evals are run.
 ---
 
 ## Purpose
 
 This skill takes a plain-English description of an agent and produces a structured eval suite plan. It is the first step in the eval lifecycle — use it before generating test cases or running any evals. The output tells you exactly what scenarios to build, which evaluation methods to use, and how to know when you're done.
+
+> **Platform context.** The plan is platform-agnostic. Microsoft Copilot Studio is referenced throughout as the **primary worked example** because its named test methods (GeneralQuality, CompareMeaning, KeywordMatch, ToolUse, ExactMatch, Custom) and analytics surface make the recommendations concrete. The same scenario routing, quality signals, and thresholds apply to any agent platform (custom LLM apps, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, etc.) — map the recommended methods to your evaluator's equivalents.
 
 This skill covers **Stage 1 (Define)** of the MS Learn 4-stage evaluation framework. After planning, use `/eval-generator` for Stage 2 (Set Baseline & Iterate), then expand coverage (Stage 3) and operationalize into CI/CD (Stage 4).
 
