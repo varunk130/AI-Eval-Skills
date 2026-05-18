@@ -82,7 +82,9 @@ flowchart LR
     I -.->|"Re-evaluate"| C
 ```
 
-> **Add `cost-quality-frontier` and `tool-use-eval` for production model selection and tool-using agent evaluation respectively.`r`n`r`n> **The loop in one sentence**:** Plan what to test → generate test cases → run them → read the verdict → fix what failed → repeat until you ship.
+> **Add `cost-quality-frontier` and `tool-use-eval` for production model selection and tool-using agent evaluation respectively.**
+>
+> **The loop in one sentence:** Plan what to test → generate test cases → run them → read the verdict → fix what failed → repeat until you ship.
 
 ### Stage Map
 
