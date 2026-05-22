@@ -84,7 +84,7 @@ flowchart LR
     I -.->|"Re-evaluate"| C
 ```
 
-> **Add `cost-quality-frontier` and `tool-use-eval` for production model selection and tool-using agent evaluation respectively.**
+> **Add `cost-quality-frontier` when you're choosing a production model and need quality, cost, and latency on one page.**
 >
 > **The loop in one sentence:** Plan what to test → generate test cases → run them → read the verdict → fix what failed → repeat until you ship.
 
