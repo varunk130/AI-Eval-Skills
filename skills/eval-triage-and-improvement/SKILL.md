@@ -1,15 +1,15 @@
 ---
 name: eval-triage-and-improvement
-description: 'Use this skill when AI agent evaluations have come back and the user needs to interpret scores, diagnose root causes of underperforming test cases, find remediation steps, or analyze patterns to improve their agent. Works against any agent platform — Copilot Studio is the primary worked example here, but the triage framework applies equally to custom harnesses, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, and other agent runtimes. Always use this skill when the user mentions: "eval failed", "why did this fail", "triage", "diagnose failure", "low pass rate", "fix evaluation results", "not passing", "failing test cases", "evaluation results", "improve my eval scores", or any situation where eval scores need interpretation and action.'
+description: 'Use this skill when AI agent evaluations have come back and the user needs to interpret scores, diagnose root causes of underperforming test cases, find remediation steps, or analyze patterns to improve their agent. Works against any agent platform - Copilot Studio is the primary worked example here, but the triage framework applies equally to custom harnesses, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, and other agent runtimes. Always use this skill when the user mentions: "eval failed", "why did this fail", "triage", "diagnose failure", "low pass rate", "fix evaluation results", "not passing", "failing test cases", "evaluation results", "improve my eval scores", or any situation where eval scores need interpretation and action.'
 ---
 
 # Eval Triage & Improvement
 
 You help users interpret their agent evaluation results and find actionable next steps to improve. Follow the hybrid workflow: gather eval results first, then generate a structured triage report with root causes, owners, and recommended fixes.
 
-> **Platform context.** Operational examples below (CSV column names, Copilot Studio Analytics tabs, the Copilot Studio Kit rubric tooling, the 89-day result-retention window) are drawn from Microsoft Copilot Studio as the **primary worked example**. The triage framework itself — 4 diagnostic layers, 3 root cause types, SHIP/ITERATE/BLOCK verdict, prioritized remediation — is platform-agnostic. Substitute your own evaluator's terminology and analytics surface and the workflow holds.
+> **Platform context.** Operational examples below (CSV column names, Copilot Studio Analytics tabs, the Copilot Studio Kit rubric tooling, the 89-day result-retention window) are drawn from Microsoft Copilot Studio as the **primary worked example**. The triage framework itself - 4 diagnostic layers, 3 root cause types, SHIP/ITERATE/BLOCK verdict, prioritized remediation - is platform-agnostic. Substitute your own evaluator's terminology and analytics surface and the workflow holds.
 
-This skill serves **Stages 2-4** of the [MS Learn 4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) — the iterative loop of running evals, diagnosing failures, applying fixes, and re-running. In Stage 4 (Operationalize), this skill helps triage regressions caught by CI/CD eval runs after agent updates. Use the [evaluation checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track your position in the lifecycle.
+This skill serves **Stages 2-4** of the [MS Learn 4-stage evaluation framework](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) - the iterative loop of running evals, diagnosing failures, applying fixes, and re-running. In Stage 4 (Operationalize), this skill helps triage regressions caught by CI/CD eval runs after agent updates. Use the [evaluation checklist template](https://github.com/microsoft/PowerPnPGuidanceHub/tree/main/guidance/agentevalguidancekit) to track your position in the lifecycle.
 
 ### When to use this skill vs. eval-result-interpreter
 
@@ -18,8 +18,8 @@ These two skills share the same triage framework but serve different modes of wo
 | Use **eval-triage-and-improvement** when… | Use **eval-result-interpreter** when… |
 |---|---|
 | You want **interactive guidance** walking through diagnosis step by step | You have a CSV file or concrete results and want a **one-shot structured report** |
-| You are in an **ongoing improvement loop** — fixing, re-running, and re-triaging | This is your **first look** at results — you need a verdict and top actions fast |
-| You need **detailed remediation help** for specific quality signals (e.g., "wrong tool fires — now what?") | You want a **customer-deliverable artifact** (the .docx triage report) |
+| You are in an **ongoing improvement loop** - fixing, re-running, and re-triaging | This is your **first look** at results - you need a verdict and top actions fast |
+| You need **detailed remediation help** for specific quality signals (e.g., "wrong tool fires - now what?") | You want a **customer-deliverable artifact** (the .docx triage report) |
 | You have **many failures** (15+) and need help prioritizing which to investigate | The eval run is relatively straightforward (<20 failures) |
 | You need the playbook worked examples and deeper diagnostic walkthroughs | You need the **activity map / result comparison** tool recommendations inline |
 
@@ -31,9 +31,9 @@ These two skills share the same triage framework but serve different modes of wo
 
 Ask the user to share:
 1. **Which eval sets ran** and their pass rates (e.g., "Knowledge Grounding: 71%, Safety: 95%")
-2. **Specific failing test cases** — the test case ID, sample input, expected value, actual agent response, and eval method
-3. **How many times they've run** — is this the first run or have they run multiple times?
-4. **What they've already tried** — any fixes attempted so far?
+2. **Specific failing test cases** - the test case ID, sample input, expected value, actual agent response, and eval method
+3. **How many times they've run** - is this the first run or have they run multiple times?
+4. **What they've already tried** - any fixes attempted so far?
 
 If they don't have structured results, help them organize what they have. If they just have a general complaint ("my agent isn't working well"), guide them to run an eval first using the scenario library.
 
@@ -50,7 +50,7 @@ Capabilities < threshold → CONDITIONAL SHIP (document gaps)
 All above threshold      → SHIP
 ```
 
-**Setting thresholds** — don't apply fixed numbers. Derive from risk profile:
+**Setting thresholds** - don't apply fixed numbers. Derive from risk profile:
 
 | Factor | Higher Threshold When... |
 |--------|------------------------|
@@ -78,7 +78,7 @@ If the user has many failures, recommend this triage order:
 |----------|-------------|-----------|
 | 1 | Safety & compliance failures | Highest consequence; blocks ship |
 | 2 | Core business failures (high-priority tests) | Direct impact on agent value |
-| 3 | Lowest-scoring eval set failures | Likely systemic — fixing root cause resolves multiple |
+| 3 | Lowest-scoring eval set failures | Likely systemic - fixing root cause resolves multiple |
 | 4 | Recurring failures (same test case across runs) | Most diagnosable |
 | 5 | Capability scenario failures | Important but lower blast radius |
 
@@ -117,23 +117,23 @@ ALL PASS → The eval is valid. Proceed to agent diagnosis:
 
 ### Step 5b: Conversation (Multi-Turn) Triage
 
-For conversation eval failures, the standard decision tree still applies but you must first identify the **critical turn** — the earliest turn where the agent went wrong. Everything after a bad turn is a cascade, not independent failures.
+For conversation eval failures, the standard decision tree still applies but you must first identify the **critical turn** - the earliest turn where the agent went wrong. Everything after a bad turn is a cascade, not independent failures.
 
 **Critical turn identification:**
 1. Walk the conversation turn by turn
 2. Find the first turn where the agent response diverges from expected behavior
 3. Classify that turn using the decision tree above
-4. Mark downstream turns as "cascade — blocked by Turn N fix"
+4. Mark downstream turns as "cascade - blocked by Turn N fix"
 
 **Conversation-specific failure patterns and remediations:**
 
 | Pattern | How to spot it | Root cause area | Remediation |
 |---------|---------------|-----------------|-------------|
-| **Context loss** — Turn 1 fine, Turn 3+ forgets | Agent re-asks or contradicts earlier turns | Agent Config | Review topic management; ensure conversation context is preserved across topic switches |
-| **State loop** — Agent repeats the same response | Identical or near-identical agent turns in sequence | Agent Config | Check topic routing for circular references; add explicit exit conditions |
-| **Clarification failure** — Agent can't handle follow-ups | Turn 2 fails when user provides clarification or correction | Agent Config | Add follow-up handling instructions; check that topics accept partial/corrective inputs |
-| **Last-mile failure** — Understands but can't resolve | Early turns diagnose correctly, final resolution turn fails | Agent Config or Platform | Check action/connector configuration; verify the resolution path is wired correctly |
-| **Eval rigidity** — Conversation is acceptable but grader rejects | Reading the full conversation, the outcome is reasonable | Eval Setup | Conversation grading is limited (AI Generated or Approval Rating only); adjust rubric or expected values |
+| **Context loss** - Turn 1 fine, Turn 3+ forgets | Agent re-asks or contradicts earlier turns | Agent Config | Review topic management; ensure conversation context is preserved across topic switches |
+| **State loop** - Agent repeats the same response | Identical or near-identical agent turns in sequence | Agent Config | Check topic routing for circular references; add explicit exit conditions |
+| **Clarification failure** - Agent can't handle follow-ups | Turn 2 fails when user provides clarification or correction | Agent Config | Add follow-up handling instructions; check that topics accept partial/corrective inputs |
+| **Last-mile failure** - Understands but can't resolve | Early turns diagnose correctly, final resolution turn fails | Agent Config or Platform | Check action/connector configuration; verify the resolution path is wired correctly |
+| **Eval rigidity** - Conversation is acceptable but grader rejects | Reading the full conversation, the outcome is reasonable | Eval Setup | Conversation grading is limited (AI Generated or Approval Rating only); adjust rubric or expected values |
 
 **Key difference from single-response triage:** Do NOT triage each turn independently. Triage the critical turn, apply the fix, re-run, and then see which downstream turns self-resolve. Expect 40-60% of downstream failures to clear after fixing the critical turn.
 
@@ -187,15 +187,15 @@ For detailed remediation steps by root cause type and quality signal, read the p
 
 ### Step 7: Triage Rationale (teach the WHY)
 
-Before generating the report, add rationale that teaches the customer the reasoning behind triage decisions — not just the conclusions. For each of these, use the actual eval data from this triage:
+Before generating the report, add rationale that teaches the customer the reasoning behind triage decisions - not just the conclusions. For each of these, use the actual eval data from this triage:
 
-1. **Why each failure got its root cause classification** — Walk through the decision tree for at least one example per root cause type. E.g., "Test case KB-014 was classified as an Eval Setup Issue because the agent response is factually correct per the current knowledge source, but the expected value still references the old 14-day policy. The agent is right; the eval is stale."
+1. **Why each failure got its root cause classification** - Walk through the decision tree for at least one example per root cause type. E.g., "Test case KB-014 was classified as an Eval Setup Issue because the agent response is factually correct per the current knowledge source, but the expected value still references the old 14-day policy. The agent is right; the eval is stale."
 
-2. **Why the remediation targets config vs. content vs. eval** — Explain the logic: "We recommended updating the knowledge source rather than changing the prompt because the agent retrieval worked correctly — it found the right document — but the document itself contains outdated information. A prompt change would mask the real problem."
+2. **Why the remediation targets config vs. content vs. eval** - Explain the logic: "We recommended updating the knowledge source rather than changing the prompt because the agent retrieval worked correctly - it found the right document - but the document itself contains outdated information. A prompt change would mask the real problem."
 
-3. **Why the priority order is what it is** — Connect to blast radius and dependency chains: "Safety failures are first not just because they are severe, but because safety prompt instructions can conflict with other behaviors. Fix safety, re-run, then triage the rest — otherwise you are diagnosing failures that might disappear once the safety instructions are in place."
+3. **Why the priority order is what it is** - Connect to blast radius and dependency chains: "Safety failures are first not just because they are severe, but because safety prompt instructions can conflict with other behaviors. Fix safety, re-run, then triage the rest - otherwise you are diagnosing failures that might disappear once the safety instructions are in place."
 
-4. **What this triage does NOT tell you** — Name the limits explicitly: "This triage analyzed [N] failures from a single eval run. It cannot detect issues in scenarios you have not written test cases for, and it cannot distinguish between a flaky failure (non-determinism) and a real failure from a single data point. If a failure is borderline, re-run before investing in a fix."
+4. **What this triage does NOT tell you** - Name the limits explicitly: "This triage analyzed [N] failures from a single eval run. It cannot detect issues in scenarios you have not written test cases for, and it cannot distinguish between a flaky failure (non-determinism) and a real failure from a single data point. If a failure is borderline, re-run before investing in a fix."
 
 Include this rationale in the triage report (see Triage Rationale section in the report template below).
 
@@ -264,8 +264,8 @@ Output a structured triage report:
 
 After fixes are applied:
 - **Scores flat after fix?** → Wrong root cause, re-triage
-- **One score up, another down?** → Instruction conflict — the fix improved one behavior but degraded another
-- **80%+ of failures share root cause?** → Systemic issue — fix the category, not individual test cases
+- **One score up, another down?** → Instruction conflict - the fix improved one behavior but degraded another
+- **80%+ of failures share root cause?** → Systemic issue - fix the category, not individual test cases
 
 ## Non-Determinism Handling
 
@@ -281,24 +281,24 @@ If the agent is deployed (even in preview), check user reactions (thumbs up/down
 
 - **High thumbs-down on a topic where eval passes:** Your eval may not be testing what real users care about. Add test cases that reflect the actual user complaints.
 - **Thumbs-down clustering after a config change:** Your fix may have introduced a regression that the eval doesn’t catch yet. Investigate and expand test coverage.
-- **Steady thumbs-up on a topic where eval fails:** Consider whether the eval is too strict — real users may be satisfied with responses the grader rejects.
+- **Steady thumbs-up on a topic where eval fails:** Consider whether the eval is too strict - real users may be satisfied with responses the grader rejects.
 
 Reactions are noisy (biased toward engaged users, small sample) and cannot diagnose root causes. Use them as a prioritization signal, not a verdict.
 
 ## Human Review Checkpoints
 
-Before acting on the triage report, review these checkpoints. Triage decisions directly drive agent changes — a wrong diagnosis wastes an entire iteration cycle.
+Before acting on the triage report, review these checkpoints. Triage decisions directly drive agent changes - a wrong diagnosis wastes an entire iteration cycle.
 
 | # | Checkpoint | Why it matters |
 |---|---|---|
-| 1 | **Verify root cause classifications yourself** — For each failure classified as eval setup issue, read the agent actual response. Is it truly acceptable, or is the triage giving the agent the benefit of the doubt? | Misclassifying agent failures as eval issues means real problems get ignored. The 20% baseline is a starting point, not a blanket excuse. |
-| 2 | **Confirm systemic pattern diagnoses before applying systemic fixes** — If the report says 80%+ failures share a root cause, verify by reading the actual responses. Similar symptoms can have different causes. | A wrong systemic diagnosis means you apply one fix expecting to resolve many failures, but only fix some or none. |
-| 3 | **Validate remediation feasibility and priority order** — Can your team actually make the suggested changes? Is the priority order right for your timeline and constraints? | The triage prioritizes by impact, but your team knows effort and dependencies. A knowledge source fix may take 2 weeks; a prompt tweak may unblock you now. |
-| 4 | **Check that proposed fixes will not regress passing scenarios** — Before making changes, consider which currently-passing test cases could be affected. Prompt changes especially have ripple effects. | Fixing 3 failures while introducing 5 new ones is a net loss. Plan to re-run the full suite after any agent configuration change. |
-| 5 | **Validate platform limitation classifications before escalating** — If a failure is classified as a platform limitation, confirm the behavior persists across multiple prompt and config variations before filing with the platform team. | Escalating a configuration issue as a platform bug wastes platform team time and delays your actual fix. |
-| 6 | **Review threshold choices against your actual risk tolerance** — The readiness thresholds are defaults. Does SHIP/ITERATE/BLOCK match what you would actually be comfortable deploying? | Only your team knows your real risk tolerance. A SHIP at 82% may be fine for an internal tool but unacceptable for a customer-facing agent in a regulated industry. |
+| 1 | **Verify root cause classifications yourself** - For each failure classified as eval setup issue, read the agent actual response. Is it truly acceptable, or is the triage giving the agent the benefit of the doubt? | Misclassifying agent failures as eval issues means real problems get ignored. The 20% baseline is a starting point, not a blanket excuse. |
+| 2 | **Confirm systemic pattern diagnoses before applying systemic fixes** - If the report says 80%+ failures share a root cause, verify by reading the actual responses. Similar symptoms can have different causes. | A wrong systemic diagnosis means you apply one fix expecting to resolve many failures, but only fix some or none. |
+| 3 | **Validate remediation feasibility and priority order** - Can your team actually make the suggested changes? Is the priority order right for your timeline and constraints? | The triage prioritizes by impact, but your team knows effort and dependencies. A knowledge source fix may take 2 weeks; a prompt tweak may unblock you now. |
+| 4 | **Check that proposed fixes will not regress passing scenarios** - Before making changes, consider which currently-passing test cases could be affected. Prompt changes especially have ripple effects. | Fixing 3 failures while introducing 5 new ones is a net loss. Plan to re-run the full suite after any agent configuration change. |
+| 5 | **Validate platform limitation classifications before escalating** - If a failure is classified as a platform limitation, confirm the behavior persists across multiple prompt and config variations before filing with the platform team. | Escalating a configuration issue as a platform bug wastes platform team time and delays your actual fix. |
+| 6 | **Review threshold choices against your actual risk tolerance** - The readiness thresholds are defaults. Does SHIP/ITERATE/BLOCK match what you would actually be comfortable deploying? | Only your team knows your real risk tolerance. A SHIP at 82% may be fine for an internal tool but unacceptable for a customer-facing agent in a regulated industry. |
 
-Include this table in the triage report output. Add: This triage report accelerates diagnosis but does not replace human judgment. Review checkpoints 1 and 2 before acting on any remediation — the distinction between eval issues and agent issues requires reading the actual responses.
+Include this table in the triage report output. Add: This triage report accelerates diagnosis but does not replace human judgment. Review checkpoints 1 and 2 before acting on any remediation - the distinction between eval issues and agent issues requires reading the actual responses.
 
 ## Data Retention Warning
 
