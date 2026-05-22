@@ -2,9 +2,9 @@
 
 # 🧪 AI Eval Skills
 
-**A turnkey toolkit for evaluating AI agents — from first test plan to production-grade CI/CD pipelines.**
+**A turnkey toolkit for evaluating AI agents - from first test plan to production-grade CI/CD pipelines.**
 
-Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** — these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete; swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
+Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** - these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete; swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
 
 Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ other AI coding agents.
 
@@ -19,7 +19,7 @@ Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ othe
 
 ---
 
-## ⚡ TL;DR — Install in 5 Seconds
+## ⚡ TL;DR - Install in 5 Seconds
 
 ```bash
 npx skills add varunk130/AI-Eval-Skills
@@ -37,7 +37,7 @@ Then, in any supported AI agent (GitHub Copilot, Claude Code, Cursor, Codex, Win
 
 ## Why This Exists
 
-Shipping an AI agent without structured evaluation is like deploying code without tests — you're flying blind, and you'll only find out what's broken once users hit it. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
+Shipping an AI agent without structured evaluation is like deploying code without tests - you're flying blind, and you'll only find out what's broken once users hit it. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
 
 ---
 
@@ -45,10 +45,10 @@ Shipping an AI agent without structured evaluation is like deploying code withou
 
 | Skill | What It Does | When To Use It |
 |:------|:-------------|:---------------|
-| **eval-suite-planner** | Takes a plain-English description of your agent and designs a full evaluation plan — which scenarios to test, which quality signals matter, what pass/fail looks like | You're starting fresh and need to figure out *what* to evaluate |
+| **eval-suite-planner** | Takes a plain-English description of your agent and designs a full evaluation plan - which scenarios to test, which quality signals matter, what pass/fail looks like | You're starting fresh and need to figure out *what* to evaluate |
 | **eval-generator** | Turns that plan into ready-to-run test cases with realistic inputs, expected outputs, and scoring criteria. Exports CSV in the Copilot Studio import format (works directly with Copilot Studio; trivially adaptable to any harness that accepts tabular test cases) | You have a plan (or even just an agent description) and need actual test data |
 | **eval-result-interpreter** | Reads your evaluation results and delivers a SHIP / ITERATE / BLOCK verdict with ranked root causes and a prioritized fix list | You've run your evals and need to know: *are we good to go?* |
-| **eval-triage-and-improvement** | Walks you through failing test cases interactively — diagnosing why each one broke and recommending specific remediation steps | You have multiple failures and need hands-on help working through them |
+| **eval-triage-and-improvement** | Walks you through failing test cases interactively - diagnosing why each one broke and recommending specific remediation steps | You have multiple failures and need hands-on help working through them |
 | **cost-quality-frontier** | Augments eval results with cost (input + output tokens × model price) and latency (p50/p95), then plots model options on a Pareto frontier with a quality-per-dollar composite score | You're choosing a production model and need quality, cost, and latency on one page |
 | **find-skills** | Searches the open skills ecosystem to discover additional capabilities you can install | You want to extend your agent's toolbox beyond eval |
 
@@ -143,7 +143,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 ## Skill Deep Dives
 
 <details>
-<summary><strong>/eval-suite-planner</strong> — Design your evaluation strategy</summary>
+<summary><strong>/eval-suite-planner</strong> - Design your evaluation strategy</summary>
 
 **You provide:** A natural-language description of what your agent does  
 **You get back:**
@@ -156,22 +156,22 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 </details>
 
 <details>
-<summary><strong>/eval-generator</strong> — Build your test cases</summary>
+<summary><strong>/eval-generator</strong> - Build your test cases</summary>
 
 **You provide:** An eval plan (from `/eval-suite-planner`) or a standalone agent description  
 **You get back:**
 - One test case per scenario with realistic user inputs and expected agent responses
 - Scoring criteria and evaluation method configuration for each case
-- A CSV file formatted for direct import into Copilot Studio (primary worked example) — the same shape works for any harness that ingests tabular test cases
+- A CSV file formatted for direct import into Copilot Studio (primary worked example) - the same shape works for any harness that ingests tabular test cases
 - A summary report for human review
 
 **Supports:** Both single-response and multi-turn conversation evaluation modes.
 </details>
 
 <details>
-<summary><strong>/eval-result-interpreter</strong> — Read your results</summary>
+<summary><strong>/eval-result-interpreter</strong> - Read your results</summary>
 
-**You provide:** Evaluation results in any of these forms — a Copilot Studio results CSV (primary example), exported results from your own evaluator, pasted summary rows, or a plain-English description  
+**You provide:** Evaluation results in any of these forms - a Copilot Studio results CSV (primary example), exported results from your own evaluator, pasted summary rows, or a plain-English description  
 **You get back:**
 - **SHIP / ITERATE / BLOCK** verdict
 - Root cause classification for every failure (knowledge gap, orchestration error, or safety issue)
@@ -182,7 +182,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 </details>
 
 <details>
-<summary><strong>/eval-triage-and-improvement</strong> — Fix what's broken</summary>
+<summary><strong>/eval-triage-and-improvement</strong> - Fix what's broken</summary>
 
 **You provide:** Eval results with one or more failing test cases  
 **You get back:**
@@ -194,7 +194,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 </details>
 
 <details>
-<summary><strong>/find-skills</strong> — Discover more skills</summary>
+<summary><strong>/find-skills</strong> - Discover more skills</summary>
 
 **You provide:** A natural-language query ("Is there a skill for load testing?" / "Find deployment skills")  
 **You get back:** Matching skills from the open ecosystem with install commands.
@@ -216,7 +216,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 
 ## Contributing
 
-Issues and PRs welcome — whether it's improving documentation, adding usage examples, or suggesting new eval patterns.
+Issues and PRs welcome - whether it's improving documentation, adding usage examples, or suggesting new eval patterns.
 
 ## License
 
@@ -224,4 +224,4 @@ Skills in this repo are sourced from [microsoft/eval-guide](https://github.com/m
 
 ---
 
-<sub>Curated and maintained by [Varun Kulkarni](https://github.com/varunk130) — part of a portfolio of AI agent systems for product teams.</sub>
+<sub>Curated and maintained by [Varun Kulkarni](https://github.com/varunk130) - part of a portfolio of AI agent systems for product teams.</sub>

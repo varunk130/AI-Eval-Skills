@@ -1,6 +1,6 @@
 ---
 name: tool-use-eval
-description: 'Evaluation pattern for agents that call tools / functions — measures tool selection accuracy, argument correctness, recovery from tool errors, and avoidance of unnecessary tool calls. Pairs with eval-suite-planner. Use when: tool-use eval, function-calling eval, agent tool selection, tool invocation accuracy, tool argument validation, tool error recovery, agent tools, function-calling agent, MCP eval.'
+description: 'Evaluation pattern for agents that call tools / functions - measures tool selection accuracy, argument correctness, recovery from tool errors, and avoidance of unnecessary tool calls. Pairs with eval-suite-planner. Use when: tool-use eval, function-calling eval, agent tool selection, tool invocation accuracy, tool argument validation, tool error recovery, agent tools, function-calling agent, MCP eval.'
 ---
 
 # Tool-Use Eval
@@ -20,9 +20,9 @@ Evaluation pattern for agents whose job is to invoke tools / functions / MCP cap
 | **Error Recovery** | When a tool returned an error, did the agent recover sensibly? | Repeats the same failing call, or gives up silently |
 | **Restraint** | Did the agent avoid unnecessary tool calls? | Calls 5 tools when 1 would do; calls a tool when no tool was needed |
 
-The four dimensions are **independently** scorable — improvements often help one and hurt another (e.g., tightening argument validation can increase Restraint failures).
+The four dimensions are **independently** scorable - improvements often help one and hurt another (e.g., tightening argument validation can increase Restraint failures).
 
-## Scoring Anchors (0–3 per dimension)
+## Scoring Anchors (0-3 per dimension)
 
 ### Tool Selection Accuracy
 | Score | Anchor |
@@ -62,23 +62,23 @@ The skill ships an 18-case seed suite covering common failure shapes:
 
 | Case Type | Count | Tests |
 |-----------|------:|-------|
-| **No tool needed** | 3 | Restraint baseline — request answerable from context |
+| **No tool needed** | 3 | Restraint baseline - request answerable from context |
 | **Single obvious tool** | 3 | Selection + Argument basics |
 | **Two plausible tools** | 3 | Selection discrimination |
 | **Multi-tool chain** | 3 | Sequencing + Restraint |
 | **First call errors** | 3 | Error Recovery |
 | **Ambiguous request** | 3 | Pre-call clarification vs. guessing |
 
-Extend with 5–10 cases from your actual production traffic.
+Extend with 5-10 cases from your actual production traffic.
 
 ## Trace Capture Schema
 
 Every test case captures:
-- `request` — the user prompt
-- `tool_calls[]` — each call's name, arguments, timestamp, result, error (if any)
-- `final_response` — the agent's reply to the user
-- `expected_tools[]` — gold-standard tool sequence (for Selection scoring)
-- `expected_no_tools` — boolean (for Restraint scoring)
+- `request` - the user prompt
+- `tool_calls[]` - each call's name, arguments, timestamp, result, error (if any)
+- `final_response` - the agent's reply to the user
+- `expected_tools[]` - gold-standard tool sequence (for Selection scoring)
+- `expected_no_tools` - boolean (for Restraint scoring)
 
 Without the trace, post-hoc scoring is impossible.
 
@@ -99,22 +99,22 @@ Standardized labels so triage rolls up cleanly:
 
 ## Process
 
-1. **Inventory the tools** — list with schemas and one-line use cases
-2. **Adopt / extend the seed suite** — start with the 18 canonical cases
-3. **Run with full trace capture** — request + every call + final response
+1. **Inventory the tools** - list with schemas and one-line use cases
+2. **Adopt / extend the seed suite** - start with the 18 canonical cases
+3. **Run with full trace capture** - request + every call + final response
 4. **Score each case on all four dimensions** independently
-5. **Aggregate by failure type** — which dimension is dragging?
-6. **Track over time** — re-run on every model / prompt / tool-schema change
+5. **Aggregate by failure type** - which dimension is dragging?
+6. **Track over time** - re-run on every model / prompt / tool-schema change
 
 ## Pairs With
 
-- **eval-suite-planner** — designs the broader plan; tool-use-eval is the tool-use chapter
-- **eval-result-interpreter** — produces SHIP / ITERATE / BLOCK verdicts
-- **eval-triage-and-improvement** — walks through failures, recommends fixes
-- **cost-quality-frontier** — Restraint failures show up as cost regressions
+- **eval-suite-planner** - designs the broader plan; tool-use-eval is the tool-use chapter
+- **eval-result-interpreter** - produces SHIP / ITERATE / BLOCK verdicts
+- **eval-triage-and-improvement** - walks through failures, recommends fixes
+- **cost-quality-frontier** - Restraint failures show up as cost regressions
 
 ## Tips
 1. **Score the trace, not the response.** Wasteful tool sequences hide if you only judge output.
-2. **Restraint regressions are the most expensive at scale** — a 2× tool-call regression doubles inference + tool-execution costs.
-3. **Don't conflate Selection and Argument failures** — different fixes (prompt vs. schema clarity).
-4. **Test the no-tool baseline** — over-calling is the hardest failure mode to detect without it.
+2. **Restraint regressions are the most expensive at scale** - a 2× tool-call regression doubles inference + tool-execution costs.
+3. **Don't conflate Selection and Argument failures** - different fixes (prompt vs. schema clarity).
+4. **Test the no-tool baseline** - over-calling is the hardest failure mode to detect without it.
