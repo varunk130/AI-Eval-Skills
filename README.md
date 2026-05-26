@@ -4,7 +4,7 @@
 
 **A turnkey toolkit for evaluating AI agents - from first test plan to production-grade CI/CD pipelines.**
 
-Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** - these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete; swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
+Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** - these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete. Swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
 
 Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ other AI coding agents.
 
