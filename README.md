@@ -115,7 +115,7 @@ Each skill maps to a stage in [Microsoft's 4-stage evaluation framework](https:/
 npx skills add varunk130/AI-Eval-Skills
 ```
 
-Or clone this repo and copy the contents of `skills/` into your project's `.agents/skills/` directory.
+Or clone this repo and copy the contents of `skills/` into the location your agent reads from - `~/.claude/skills/` (or `.claude/skills/` in a project) for Claude Code, `.github/skills/` for GitHub Copilot.
 
 ### Use
 
