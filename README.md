@@ -119,7 +119,7 @@ Or clone this repo and copy the contents of `skills/` into your project's `.agen
 
 ### Use
 
-Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, Cursor, etc.):
+Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, Cursor, Codex, Windsurf, etc.):
 
 ```text
 # 1. Design your evaluation plan
