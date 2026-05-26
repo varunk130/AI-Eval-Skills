@@ -218,6 +218,8 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 
 Issues and PRs welcome - whether it's improving documentation, adding usage examples, or suggesting new eval patterns.
 
+---
+
 ## Related work
 
 Part of a portfolio of AI agent and skill libraries for product, GTM, and decision-making teams.
