@@ -220,7 +220,7 @@ Issues and PRs welcome - whether it's improving documentation, adding usage exam
 
 ---
 
-## Related work
+## Related Work
 
 Part of a portfolio of AI agent and skill libraries for product, GTM, and decision-making teams.
 
