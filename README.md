@@ -194,6 +194,19 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 </details>
 
 <details>
+<summary><strong>/cost-quality-frontier</strong> - Choose a production model</summary>
+
+**You provide:** Evaluation results plus a list of candidate models with their per-token pricing  
+**You get back:**
+- Cost per run (input + output tokens × model price) and latency (p50 / p95) for each model
+- A Pareto frontier plot of quality vs cost, with each model placed against the trade-off curve
+- A composite quality-per-dollar score so you can rank models on a single number
+- A recommended pick with the reasoning made explicit
+
+**Best for:** Selecting the production model when quality, cost, and latency all matter and you want them on one page.
+</details>
+
+<details>
 <summary><strong>/find-skills</strong> - Discover more skills</summary>
 
 **You provide:** A natural-language query ("Is there a skill for load testing?" / "Find deployment skills")  
@@ -233,7 +246,6 @@ Part of a portfolio of AI agent and skill libraries for product, GTM, and decisi
 
 - [claude-code-skills](https://github.com/varunk130/claude-code-skills) - 29 production-grade skills for finance, product, strategy, and game theory
 - [AI-Builder-Decision-Analyst](https://github.com/varunk130/AI-Builder-Decision-Analyst) - 11 skills that catch bad bets before you ship across DECIDE / BUILD / COMMUNICATE / LEARN
-- [pm-copilots](https://github.com/varunk130/pm-copilots) - 4 PM copilots - stakeholder translation, decision engine, financial analyst, roadmap architect
 
 **Go-to-market**
 
@@ -247,7 +259,7 @@ Part of a portfolio of AI agent and skill libraries for product, GTM, and decisi
 
 **Multi-agent demos**
 
-- [multi-ai-agent-pm-team](https://github.com/varunk130/multi-ai-agent-pm-team) - 6-agent React pipeline that turns customer feedback into executive-ready strategy
+- [ai-pm-agents-suite](https://github.com/varunk130/ai-pm-agents-suite) - 6-agent pipeline plus 3 standalone PM agents (decision engine, financial analyst, stakeholder translator) that turn customer feedback into strategy, PRDs, and comms
 - [ai-legal-team-agent](https://github.com/varunk130/ai-legal-team-agent) - 4-agent legal analysis team with Python orchestrator and Claude Code skills
 
 **Evaluation & operations**
