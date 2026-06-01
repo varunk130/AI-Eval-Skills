@@ -276,4 +276,4 @@ The skill content is adapted from [microsoft/eval-guide](https://github.com/micr
 
 ---
 
-<sub>Curated and maintained by [Varun Kulkarni](https://github.com/varunk130) - part of a portfolio of AI agent systems for product teams.</sub>
+<sub>Curated and maintained by [Varun Kulkarni](https://github.com/varunk130) — part of a portfolio of AI agent systems for product teams.</sub>
