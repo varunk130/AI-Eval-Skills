@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/hero.svg" alt="AI Eval Skills — Plan, generate, run, interpret, and triage evaluations for any AI agent" width="100%"/>
+
 # 🧪 AI Eval Skills
 
 **A turnkey toolkit for evaluating AI agents - from first test plan to production-grade CI/CD pipelines.**
