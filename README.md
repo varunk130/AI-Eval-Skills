@@ -270,7 +270,9 @@ Part of a portfolio of AI agent and skill libraries for product, GTM, and decisi
 
 ## License
 
-Skills in this repo are sourced from [microsoft/eval-guide](https://github.com/microsoft/eval-guide). See the original repository for licensing terms.
+This repository is licensed under the **MIT License** — see [LICENSE](LICENSE) for the full text.
+
+The skill content is adapted from [microsoft/eval-guide](https://github.com/microsoft/eval-guide) (MIT-licensed) with packaging, structure, and additional skills (`cost-quality-frontier`, `find-skills`) layered on top by this repo. Please credit both this repository and the upstream guide when redistributing.
 
 ---
 
