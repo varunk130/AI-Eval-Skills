@@ -4,7 +4,7 @@
 
 # 🧪 AI Eval Skills
 
-**A turnkey toolkit for evaluating AI agents - from first test plan to production-grade CI/CD pipelines.**
+**A turnkey toolkit for evaluating AI agents — from first test plan to production-grade CI/CD pipelines.**
 
 Built on [Microsoft's evaluation methodology](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) but **platform-agnostic** - these skills work for any AI agent (custom LLM apps, LangChain/LangGraph agents, AutoGen, Semantic Kernel, OpenAI Assistants, etc.). [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) is used throughout as the primary worked example because its CSV import/export and built-in test methods make the workflow concrete. Swap in your own harness or evaluator and the planning, generation, interpretation, and triage steps stay the same.
 
@@ -39,7 +39,7 @@ Then, in any supported AI agent (GitHub Copilot, Claude Code, Cursor, Codex, Win
 
 ## Why This Exists
 
-Shipping an AI agent without structured evaluation is like deploying code without tests - you're flying blind, and you'll only find out what's broken once users hit it. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
+Shipping an AI agent without structured evaluation is like deploying code without tests — you're flying blind, and you'll only find out what's broken once users hit it. These skills give your coding agent the ability to walk you through the entire eval lifecycle: designing what to test, building the test cases, reading the results, and telling you exactly what to fix. No context-switching, no manual spreadsheet work.
 
 ---
 
