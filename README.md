@@ -12,7 +12,7 @@ Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ othe
 
 [![Skills CLI](https://img.shields.io/badge/install-npx%20skills%20add-blue?style=for-the-badge&logo=npm)](https://skills.sh)
 [![Source](https://img.shields.io/badge/based%20on-microsoft%2Feval--guide-0078D4?style=for-the-badge&logo=microsoft)](https://github.com/microsoft/eval-guide)
-[![Skills](https://img.shields.io/badge/Skills-6-blueviolet?style=for-the-badge)](#whats-inside)
+[![Skills](https://img.shields.io/badge/Skills-7-blueviolet?style=for-the-badge)](#whats-inside)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 **Maintained by [Varun Kulkarni](https://github.com/varunk130)** · [⚡ Quick Start ↓](#quick-start) · [What's Inside ↓](#whats-inside) · [How It Fits ↓](#how-it-all-fits-together)
@@ -52,6 +52,7 @@ Shipping an AI agent without structured evaluation is like deploying code withou
 | **eval-result-interpreter** | Reads your evaluation results and delivers a SHIP / ITERATE / BLOCK verdict with ranked root causes and a prioritized fix list | You've run your evals and need to know: *are we good to go?* |
 | **eval-triage-and-improvement** | Walks you through failing test cases interactively - diagnosing why each one broke and recommending specific remediation steps | You have multiple failures and need hands-on help working through them |
 | **cost-quality-frontier** | Augments eval results with cost (input + output tokens × model price) and latency (p50/p95), then plots model options on a Pareto frontier with a quality-per-dollar composite score | You're choosing a production model and need quality, cost, and latency on one page |
+| **tool-use-eval** | Evaluation pattern for tool/function-calling agents — measures tool selection accuracy, argument correctness, recovery from tool errors, and avoidance of unnecessary calls | Your agent calls tools, functions, or MCP capabilities and generic quality scores miss the failure modes |
 | **find-skills** | Searches the open skills ecosystem to discover additional capabilities you can install | You want to extend your agent's toolbox beyond eval |
 
 ---
@@ -206,6 +207,18 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 - A recommended pick with the reasoning made explicit
 
 **Best for:** Selecting the production model when quality, cost, and latency all matter and you want them on one page.
+</details>
+
+<details>
+<summary><strong>/tool-use-eval</strong> - Evaluate tool/function-calling agents</summary>
+
+**You provide:** An agent that invokes tools, functions, or MCP capabilities  
+**You get back:**
+- A four-dimension eval pattern: tool selection accuracy, argument correctness, error recovery, and avoidance of unnecessary calls
+- Per-dimension scoring that separates failure modes generic quality scores hide
+- Pairs with `/eval-suite-planner` to fold tool-use scenarios into the broader suite
+
+**Best for:** Function-calling and MCP agents where a high overall quality score can still mask broken tool behavior.
 </details>
 
 <details>
