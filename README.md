@@ -21,6 +21,21 @@ Packaged as drop-in skills for GitHub Copilot, Claude Code, Cursor, and 10+ othe
 
 ---
 
+## Table of Contents
+
+- [TL;DR - Install in 5 Seconds](#-tldr---install-in-5-seconds)
+- [Why This Exists](#why-this-exists)
+- [What's Inside](#whats-inside)
+- [How It All Fits Together](#how-it-all-fits-together)
+- [Quick Start](#quick-start)
+- [Skill Deep Dives](#skill-deep-dives)
+- [References](#references)
+- [Contributing](#contributing)
+- [Related Work](#related-work)
+- [License](#license)
+
+---
+
 ## ⚡ TL;DR - Install in 5 Seconds
 
 ```bash
