@@ -2,6 +2,9 @@
 
 Notable changes to this project, newest first.
 
+- 2026-10-03 - Documentation: added a Table of Contents to the README for faster navigation.
+- 2026-10-03 - Documentation: corrected the ai-ux-skill-library reference in Related Work to 13 frameworks and the ai-gtm-skill-library reference to 37 skills.
+- 2026-10-03 - Maintenance: added .gitattributes to normalize line endings to LF.
 - 2026-06-29 - Documentation: added the three Next.js multi-agent demos (Compound, Beacon, Atlas) to the Related Work section.
 - 2026-06-16 - Documentation: updated the ai-customer-discovery-skills status in Related Work (5 of 12 skills shipped).
 - 2026-05-18 - Documentation: reframed README and the 4 core eval SKILL.md files (eval-suite-planner, eval-generator, eval-result-interpreter, eval-triage-and-improvement) to be platform-agnostic. Microsoft Copilot Studio is now positioned as the primary worked example rather than the only supported platform; the planning, generation, interpretation, and triage workflows explicitly call out that they adapt to custom harnesses, LangChain/LangGraph, AutoGen, Semantic Kernel, OpenAI Assistants, and other agent runtimes.
