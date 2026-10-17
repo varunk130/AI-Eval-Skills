@@ -76,8 +76,8 @@ For each model:
 
 ### Step 4: Build the Pareto Frontier
 A model is on the frontier iff no other model is **strictly better** on all three of (higher quality, lower cost, lower p95 latency). Output two tables:
-- **Quality vs Cost** frontier
-- **Quality vs Latency** frontier
+- **Quality vs. Cost** frontier
+- **Quality vs. Latency** frontier
 
 Dominated models stay in the report but are flagged "dominated by *X*" with the reason.
 
@@ -101,7 +101,7 @@ Re-run the ranking with pricing perturbed ±20% and quality perturbed ±2 points
 
 ## Demo Output Snippet
 
-**Frontier - Quality vs Cost (per 1k eval runs):**
+**Frontier - Quality vs. Cost (per 1k eval runs):**
 
 | Model | Quality | Cost / 1k | p95 Latency | On Frontier? | Notes |
 |-------|--------:|----------:|------------:|--------------|-------|
