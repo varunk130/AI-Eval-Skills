@@ -217,7 +217,7 @@ Run these commands inside any supported AI agent (GitHub Copilot, Claude Code, C
 **You provide:** Evaluation results plus a list of candidate models with their per-token pricing  
 **You get back:**
 - Cost per run (input + output tokens × model price) and latency (p50 / p95) for each model
-- A Pareto frontier plot of quality vs cost, with each model placed against the trade-off curve
+- A Pareto frontier plot of quality vs. cost, with each model placed against the trade-off curve
 - A composite quality-per-dollar score so you can rank models on a single number
 - A recommended pick with the reasoning made explicit
 
