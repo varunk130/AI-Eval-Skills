@@ -279,7 +279,7 @@ Part of a portfolio of AI agent and skill libraries for product, GTM, and decisi
 
 **Go-to-market**
 
-- [ai-gtm-skill-library](https://github.com/varunk130/ai-gtm-skill-library) - 37 opinionated GTM skills across the full discover -> renew lifecycle
+- [ai-gtm-skill-library](https://github.com/varunk130/ai-gtm-skill-library) - 37 opinionated GTM skills across the full discover → renew lifecycle
 - [ai-marketing-claude-skills](https://github.com/varunk130/ai-marketing-claude-skills) - 12 marketing-ops skills with scoring algorithms and statistical frameworks
 - [ai-marketing-os](https://github.com/varunk130/ai-marketing-os) - Run a marketing org as an orchestrated AI team: 9 agents, 12 expert skills, end-to-end missions that ship real artifacts
 - [ai-partner-ecosystem-analysis](https://github.com/varunk130/ai-partner-ecosystem-analysis) - Deep research on any ISV, partner, or competitor with a 1-slide PPTX output
@@ -292,7 +292,7 @@ Part of a portfolio of AI agent and skill libraries for product, GTM, and decisi
 
 - [ai-pm-agents-suite](https://github.com/varunk130/ai-pm-agents-suite) - 6-agent pipeline plus 3 standalone PM agents (decision engine, financial analyst, stakeholder translator) that turn customer feedback into strategy, PRDs, and comms
 - [ai-legal-agents-skills-os](https://github.com/varunk130/ai-legal-agents-skills-os) - Agentic operating system for legal work: one master agent, nine specialist skills, MCP + MCP Apps
-- [ai-growth-os](https://github.com/varunk130/ai-growth-os) - Compound: a multi-agent growth experiment engine that runs the find -> design -> ship -> learn loop end-to-end, offline
+- [ai-growth-os](https://github.com/varunk130/ai-growth-os) - Compound: a multi-agent growth experiment engine that runs the find → design → ship → learn loop end-to-end, offline
 - [ai-customer-acquisition](https://github.com/varunk130/ai-customer-acquisition) - Beacon: five agents allocate a budget across channels, build the creative, and reallocate on week-1 results
 - [ai-revops](https://github.com/varunk130/ai-revops) - Atlas: nine agents across GTM, Partnerships, and RevOps take a company into a new market with one Vertical Launch Plan
 
