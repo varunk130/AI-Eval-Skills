@@ -2,6 +2,7 @@
 
 Notable changes to this project, newest first.
 
+- 2026-10-27 - Documentation: capitalized Markdown in the eval-generator skill.
 - 2026-10-03 - Documentation: added a Table of Contents to the README for faster navigation.
 - 2026-10-03 - Documentation: corrected the ai-ux-skill-library reference in Related Work to 13 frameworks and the ai-gtm-skill-library reference to 37 skills.
 - 2026-10-03 - Maintenance: added .gitattributes to normalize line endings to LF.
